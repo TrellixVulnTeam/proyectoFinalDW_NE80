@@ -2,7 +2,7 @@
 body {
   display: flex;
   flex-direction: column;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif !important;
   margin: 0; }
 
 hr {
@@ -30,43 +30,16 @@ header {
         width: auto; }
 
 /*--- NAV ---*/
-/*
-@mixin estiloUl($direction, $jusContent, $alItems, $wrap) {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: $direction;
-    height: 100%;
-    width: 100%;
-    justify-content: $jusContent;
-    align-items: $alItems;
-    flex-wrap: $wrap;
-    background-color: rgb(15, 15, 15);
-}
-
-@mixin estiloA (){
-    width: 100%;
-    text-decoration: none;
-    color: lightgrey;
-    padding: 5px;
-    font-weight: bolder;
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 5px;
-    word-spacing: 15px;  
-}
-*/
 nav {
   font-family: 'Playfair Display', serif;
+  /*
+    text-transform: uppercase;*/
   background-color: #0f0f0f;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center; }
   nav ul {
-    /*
-        @include estiloUl(column, space-between, center, nowrap);*/
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -490,37 +463,67 @@ h2 {
   #seccionCategorias {
     display: flex;
     justify-content: center; }
-  #categorias {
-    width: 80%;
-    display: grid;
-    align-items: stretch;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 50% 50%;
-    grid-template-areas: "categoria0 categoria1 categoria2 categoria3 categoria4 " "categoria5 categoria6 categoria7 categoria8 categoria9 "; }
-  #categoria0 {
-    grid-area: categoria0; }
-  #categoria1 {
-    grid-area: categoria1; }
-  #categoria2 {
-    grid-area: categoria2; }
-  #categoria3 {
-    grid-area: categoria3; }
-  #categoria4 {
-    grid-area: categoria4; }
-  #categoria5 {
-    grid-area: categoria5; }
-  #categoria6 {
-    grid-area: categoria6; }
-  #categoria7 {
-    grid-area: categoria7; }
-  #categoria8 {
-    grid-area: categoria8; }
-  #categoria9 {
-    grid-area: categoria9; } }
+    #seccionCategorias #categorias {
+      width: 80%;
+      display: grid;
+      align-items: stretch;
+      grid-template-columns: 20% 20% 20% 20% 20%;
+      grid-template-rows: 50% 50%;
+      grid-template-areas: "categoria0 categoria1 categoria2 categoria3 categoria4 " "categoria5 categoria6 categoria7 categoria8 categoria9 "; }
+      #seccionCategorias #categorias #categoria0 {
+        grid-area: categoria0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; }
+      #seccionCategorias #categorias #categoria1 {
+        grid-area: categoria1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; }
+      #seccionCategorias #categorias #categoria2 {
+        grid-area: categoria2;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; }
+      #seccionCategorias #categorias #categoria3 {
+        grid-area: categoria3;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; }
+      #seccionCategorias #categorias #categoria4 {
+        grid-area: categoria4;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; }
+      #seccionCategorias #categorias #categoria5 {
+        grid-area: categoria5;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; }
+      #seccionCategorias #categorias #categoria6 {
+        grid-area: categoria6;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; }
+      #seccionCategorias #categorias #categoria7 {
+        grid-area: categoria7;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; }
+      #seccionCategorias #categorias #categoria8 {
+        grid-area: categoria8;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; }
+      #seccionCategorias #categorias #categoria9 {
+        grid-area: categoria9;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; } }
 
 .efectoEscala:hover {
   transform: scale(1.5);
-  transition: 1s;
+  transition: 0.3s;
   background-color: white; }
 
 /*NOTICIAS*/
