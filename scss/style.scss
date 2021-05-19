@@ -1,7 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
-    font-family: 'Playfair Display', serif !important;
+    font-family: 'Playfair Display', serif;
     margin: 0;
 }
 
@@ -36,34 +36,41 @@ header {
 }
 
 /*--- NAV ---*/
+
+@mixin navStyle ($ancho) {
+    width: $ancho;
+    display: flex;
+    flex-direction: row;
+    background-color: none;
+    margin: 0;
+    padding: 15px;
+    justify-content: center;
+    border-top: 1px solid grey;
+    flex-wrap: wrap;
+}
+
+@mixin liStyle ($anc){
+    display: flex;
+    width: $anc;
+    height: 33%;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
 nav {
-    font-family: 'Playfair Display', serif;/*
-    text-transform: uppercase;*/
+    font-family: 'Playfair Display', serif;
+    /*text-transform: uppercase;*/
     background-color: rgb(15, 15, 15);
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     ul {
-        width: 80%;
-        display: flex;
-        flex-direction: row;
-        background-color: none;
-        margin: 0px;
-        padding: 15px;
-        justify-content: center;
-        border-top:1px solid grey;
-        flex-wrap: wrap;
+        @include navStyle(80%);
         li {
-            display: flex;
-            width: 49%;
-            height: 33%;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
+            @include liStyle(49%);
             a {
-                /*
-                @include estiloA();*/
                 color: lightgrey;
                 text-decoration: none;
                 border-top: 1px solid rgb(15, 15, 15);
@@ -80,27 +87,9 @@ nav {
         display: flex;
         justify-content: center;
         ul {
-            width: 80%;
-            display: flex;
-            flex-direction: row;
-            background-color: none;
-            margin: 0px;
-            padding: 15px;
-            justify-content: center;
-            border-top:1px solid grey;
-            flex-wrap: wrap;
+            @include navStyle(80%);
             li {
-                display: flex;
-                width: 30%;
-                justify-content: center;
-                margin: 0;
-                padding: 0;
-                a {/*
-                    @include estiloA();*/
-                    color: lightgrey;
-                    text-decoration: none;
-                    border-top: 1px solid rgb(15, 15, 15);
-                }
+                @include liStyle(30%);
             }
         }
     }
@@ -114,22 +103,10 @@ nav {
         display: flex;
         justify-content: center;
         ul {
-            width: 75%;
-            display: flex;
-            flex-direction: row;
-            background-color: none;
-            margin: 0px;
-            padding: 15px;
-            justify-content: center;
-            border-top:1px solid grey;
+            @include navStyle(80%);
             li {
-                display: flex;
-                width: 15%;
-                justify-content: center;
-                margin: 0;
-                padding: 0;
-                a {/*
-                    @include estiloA();*/
+                @include liStyle(15%);
+                a {
                     color: lightgrey;
                     text-decoration: none;
                     border-top: 1px solid rgb(15, 15, 15);
@@ -266,50 +243,52 @@ footer {
 }
 
 @media only screen and (min-width: 768px) {
-    #footerMenu {
-        ul {
-            display: flex;
-            flex-direction: row !important;
-            flex-wrap: wrap;
-            width: 100%;
-            li {
-                width: 50%;
+    footer {
+        #footerMenu {
+            ul {
                 display: flex;
-                align-items: center;
-                a {
-                    width: 100%;
-                    text-align: center;
-                    display: block;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 100%;
+                li {
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+                    a {
+                        width: 100%;
+                        text-align: center;
+                        display: block;
+                    }
                 }
             }
         }
-    }
 
-    #footerProductos {
-        ul {
+        #footerProductos {
+            ul {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 100%;
+                li {
+                    width: 50%;
+                    a {
+                        width: 100%;
+                        text-align: center;
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        #iconosRedes {
+            width: 60%;
             display: flex;
-            flex-direction: row !important;
-            flex-wrap: wrap;
-            width: 100%;
-            li {
-                width: 50%;
-                a {
-                    width: 100%;
-                    text-align: center;
-                    display: block;
+            justify-content: space-around;
+            a {
+                img {
+                    width: 30px;
+                    height: 30px;
                 }
-            }
-        }
-    }
-
-    #iconosRedes {
-        width: 60%;
-        display: flex;
-        justify-content: space-around;
-        a {
-            img {
-                width: 30px;
-                height: 30px;
             }
         }
     }
@@ -369,7 +348,8 @@ h2 {
         justify-content: center;
         align-items: center;
         font-size: 20.8px;
-        background-color: lightsalmon;
+        background: rgb(149,149,149);
+        background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(255,255,255,1) 100%);         
         p {
             width: 90%;
             text-align: justify;
@@ -386,8 +366,10 @@ h2 {
         justify-content: center;
         align-items: center;
         font-size: 20.8px;
-        background-color: lightsalmon;
+        background: rgb(255,255,255);
+        background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(149,149,149,1) 100%);         
         p {
+            color: black;
             width: 90%;
             text-align: justify;
             a {
@@ -473,7 +455,6 @@ h2 {
             justify-content: center;
             align-items: center;
             font-size: 20.8px;
-            background-color: lightsalmon;
             height: 100%;
             p {
                 width: 90%;
@@ -492,7 +473,6 @@ h2 {
             justify-content: center;
             align-items: center;
             font-size: 20.8px;
-            background-color: lightsalmon;
             height: 100%;
             p {
                 width: 90%;
@@ -726,6 +706,7 @@ table {
     #seccionGaleria {
         article {
             align-items: center;
+            border-top: 1px solid grey;
             p {
                 line-height: 30px;
                 text-align: justify;
@@ -736,7 +717,7 @@ table {
                 display: flex;
                 justify-content: center;
                 width: 95%;
-                margin: auto;
+                margin-top: 25px;
                 .carousel-inner {
                     max-height: 500px;
                     max-width: 500px;
@@ -748,16 +729,6 @@ table {
 
 .desaparece2 {
     display: none;
-}
-
-#ricciMaque {
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-#ricciDona {
-    display: flex;
-    flex-direction: column-reverse;
 }
 
 @media only screen and (min-width: 768px) {
@@ -791,21 +762,14 @@ table {
                     }
                 }
             }
+            #ricciLiccoleto {
+                flex-direction: row-reverse;
+            }      
+            #ricciDona {
+                display: flex;
+                flex-direction: row-reverse;
+            }
         }
-    }
-    #ricciMaque {
-        display: flex;
-        flex-direction: row;
-    }
-    
-    #ricciBona {
-        display: flex;
-        flex-direction: row-reverse;
-    }
- 
-    #ricciDona {
-        display: flex;
-        flex-direction: row;
     }
 }
 
@@ -817,11 +781,11 @@ table {
         width: 95%;
         article {
             align-items: center;
-            border-top: 1px solid grey;
             display: flex;
             justify-content: center;
             margin-top: 5px;
             padding-top: 5px;
+
             p {
                 width: 35%;
                 line-height: 30px;
@@ -980,9 +944,13 @@ table {
 /*--- QUIENES SOMOS ---*/
 
 #seccionNosotros {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
+    h3 {
+        margin-top: 15px;
+    }
     article {
         display: flex;
         width: 80%;
@@ -996,6 +964,7 @@ table {
         img {
             max-width: 100%;
             height: auto;
+            margin-bottom: 15px;
         }
     }
     #articuloNosotros2 {
@@ -1006,7 +975,7 @@ table {
     }
     video {
         max-width: 80%;
-        margin-top: 15px;
+        margin: 15px 0 15px 0;
     }        
     #actualidad {
         width: 80%;
